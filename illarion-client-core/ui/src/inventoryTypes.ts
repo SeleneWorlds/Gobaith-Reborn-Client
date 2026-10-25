@@ -8,6 +8,7 @@ export interface InventorySlotDefinition {
 
 export interface InventoryItem {
   visual: string;
+  label?: string;
   count: number;
   container: boolean;
 }

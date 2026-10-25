@@ -87,6 +87,7 @@ export const createInventoryService = (network: NetworkApi): InventoryService =>
     }
     items[key] = {
       visual,
+      label: typeof itemPayload?.label === 'string' ? itemPayload.label : undefined,
       count: typeof itemPayload?.count === 'number' ? Math.max(1, Math.round(itemPayload.count)) : 1,
       container: itemPayload?.container === true,
     };

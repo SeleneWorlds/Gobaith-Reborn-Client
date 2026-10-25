@@ -28,6 +28,7 @@ const tooltip = useTooltip();
 let suppressLookAt = false;
 
 const item = computed(() => inventory.getItem(props.viewId, props.slotId));
+const label = computed(() => item.value?.label ?? (item.value && item.value.count > 1 ? String(item.value.count) : ''));
 const isUsing = computed(() =>
   inventory.selectedUseSlots.value.some((slot) => slot.viewId === props.viewId && slot.slotId === props.slotId),
 );
@@ -184,7 +185,7 @@ const onScrollSlot = (event: WheelEvent) => {
         :seed="`${viewId}:${slotId}`"
         without-offset
       />
-      <span v-if="item && item.count > 1" class="count">{{ item.count }}</span>
+      <span v-if="label" class="count">{{ label }}</span>
     </button>
     <SeleneVisual
       v-if="isUsing || isMagicTarget"
