@@ -217,7 +217,7 @@ onBeforeUnmount(() => {
         @focus="showRuneTooltip($event, rune)"
         @blur="tooltip.hide"
       >
-        <RuneImage :type="runePrefix" :rune="rune" />
+        <RuneImage class="rune-image" :type="runePrefix" :rune="rune" />
         <img class="hover-selection" :src="hoverSelection" alt="" />
         <img v-if="magic.selected.value.includes(rune)" class="selected" :src="selection" alt="" />
       </button>
@@ -313,6 +313,11 @@ onBeforeUnmount(() => {
 .rune :deep(img) {
   display: block;
 }
+.rune > .rune-image {
+  width: 32px;
+  height: 32px;
+  object-fit: scale-down;
+}
 .selected {
   position: absolute;
   inset: 0;
@@ -343,6 +348,10 @@ onBeforeUnmount(() => {
 }
 .spell :deep(img) {
   display: block;
+  width: 17px;
+  height: 35px;
+  flex-shrink: 0;
+  object-fit: scale-down;
   margin: auto 6.5px;
 }
 .store-spell,
@@ -383,6 +392,10 @@ onBeforeUnmount(() => {
 }
 .bookmark :deep(img) {
   display: block;
+  width: 17px;
+  height: 35px;
+  flex-shrink: 0;
+  object-fit: scale-down;
   margin: auto 6.5px;
 }
 .bookmark-0,
