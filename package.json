@@ -10,8 +10,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
-    "typecheck": "vue-tsc --noEmit",
-    "test": "node tests/run.mjs"
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@lucide/vue": "^1.57.0",
